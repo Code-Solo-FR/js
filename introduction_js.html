@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Affiche un message dans la console.
+        let hey = "Bienvenus a l'introduction de JavaScript";
+        console.log(hey);
+
+        //faire une pyramide.
+        //declarer 3 variable - une pour le nombre que je veux afficher 1234, une autre pour le nombre de fois que je veux l'afficher et l'autre pour pour le nombre d'espace.
+
+        let nombre;
+        let fois;
+        let espace;
+
+        for (nombre = 0, fois = 1, espace = 4; nombre <= 4; nombre++, fois++, fois++, espace--) {
+            console.log(" ".repeat(espace));
+            console.log("4".repeat(fois));
+            console.log("".repeat(nombre));
+        }
+
+        let hello = "hello word";
+        console.log(hello);
+
+        for (let i = 0; 1 < 5; i = 1 + 1) {
+            //i is a number
+            let str = i.toString(); //change a number in string.
+            console.log(str.repeat(1)); //i travaille sur les nombres pas trop de choix, str travaille sur les chaine de caractere enormement de choix.
+
+
+        }
+
+
+
+        // Faire une boucle 
+        for (let i = "bonjour.length" /*declare une variable*/ ; i < 10 /*on met la condition*/ ; i++ /*On définit le compteur*/ ) {
+            console.log(i);
+            console.log(i.repeat(1));
+        }
+    </script>
+
+    <center>
+        <h1>INTRODUCTION AU JAVA SCRIPT</h1>
+        <p>Le cour est sur le code source de la page, tu peux aussi regarder la console de l'inspecteur pour lire et comprendre.</p>
+    </center>
+</body>
+
+</html>

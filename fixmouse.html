@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        body {
+            height: 100vh;
+        }
+        
+        img {
+            height: 10%;
+            width: 10%;
+            position: absolute;
+            transition-duration: 0s;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="http://www.masque-emoticone.com/Files/105499/Img/18/EMOTICONE-MASQUE.jpg" id="img" />
+    <script>
+        //cibler le body.
+        let position = document.querySelector("body");
+        position.addEventListener("mousemove", function() {
+            let xh = event.clientX;
+            let yv = event.clientY;
+            console.log(xh, yv);
+            let img = document.querySelector("img");
+            img.style.left = xh + "px";
+            img.style.top = yv + "px";
+
+            //variation de l'élément.
+
+            img.style.width = ((xh * 10) / (window.innerWidth)) + "%";
+            img.style.height = +((xh * 10) / (window.innerWidth)) + "%";
+        });
+
+        let
+        //cibler l'img.
+    </script>
+</body>
+
+</html>

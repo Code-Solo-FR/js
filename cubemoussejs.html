@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        body {
+            height: 100vh;
+        }
+        
+        #img {
+            height: 50px;
+            width: 50px;
+            position: absolute;
+            top: 50px;
+            left: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="http://www.ordissinaute.fr/sites/default/files/field/image/smileys.png" id="img" />
+    <script>
+        let pos = document.querySelector("body");
+        pos.addEventListener("mousemove", function() {
+            let x = event.clientX;
+            let y = event.clientY;
+            console.log(x, y);
+            let img = document.querySelector("#img");
+            img.style.left = x + "px";
+            img.style.top = y + "px";
+        });
+    </script>
+</body>
+
+</html>
