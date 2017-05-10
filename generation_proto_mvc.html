@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Generation proto MVC</title>
+    <style>
+        body {
+            margin: 0 auto;
+        }
+        
+        .flex {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    </style>
+
+</head>
+
+<body>
+    <center>
+        <h1>GENERATION PROTO MVC!</h1>
+    </center>
+
+    <center>
+        <h1>Generation Proto MVC</h1>
+    </center>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>
+                    Index
+                </th>
+                <th>
+                    Valeur
+                </th>
+            </tr>
+        </thead>
+        <tbody id="destination">
+
+        </tbody>
+    </table>
+
+    <script>
+        let array = ["data1", "data2", "data3", "data4"];
+        //cible root data(s) > form.
+        for (let parcours = 0; parcours < array.length; parcours++) { //boucle for array.
+            let tr = document.createElement("tr");
+            let tdindex = document.createElement("td"); //cree le tr.
+            let tdvaleur = document.createElement("td"); //cree le td.
+
+            tdindex.textContent = parcours; //val qui s'incrémente. on lui met val l'index
+            tdvaleur.textContent = array[parcours]; //val data 
+
+            tr.appendChild(tdindex);
+            tr.appendChild(tdvaleur);
+
+            document.getElementById("destination").appendChild(tr); //toi destin add le tr.
+            console.log(array[parcours]);
+        }
+    </script>
+</body>
+
+</html>
