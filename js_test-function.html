@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>test function</title>
+</head>
+
+<body>
+    <p>Appeler la function > voir console</p>
+    <script>
+        //Selectionner l'élement p.
+        let elp = document.querySelector("p");
+        console.log("Avant que la function soit lus");
+        //Add event.
+        elp.addEventListener("click", testfunc); //si j'ajoute les parenthese ma fonction ne sera pas appeler mais feras un retour.
+        //declaration function.
+        function testfunc() {
+            console.log("j'ai appeller la fonction");
+            console.log("Apres que la function soit lus");
+        };
+    </script>
+
+
+</body>
+
+</html>
