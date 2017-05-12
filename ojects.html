@@ -18,7 +18,52 @@
             nom: "BOUMAZA",
             age: 25,
             region: "Rhône Alpes",
-            pays: "France",
+            pays: "Suisse",
+            celibataire: false
+        };
+
+        //acceder au differente proprieter de l'objet. 
+        console.log(maPersonne.region);
+        //ou
+        console.log(maPersonne["region"]);
+        //ou
+        // console.log(maPersonne[variable]);
+
+        //Si on va veut modifier les valeurs de la proprieter.
+        maPersonne.region = "Loire sur saone";
+        //si on veux rajoter une nouvelle propriéter a maPersonne.
+        maPersonne.sex = "masculin";
+
+        //Ajout d'un object dans maPersonne.
+        maPersonne.objectInMap = {
+            adresse: "2 rue georges Lyvet",
+            codePostal: 69200,
+            commune: "Vénissieux"
+        };
+        console.log(maPersonne.objectInMap);
+        maPersonne.objectInMap.codePostal = 69000;
+        console.log(maPersonne.objectInMap.codePostal);
+        // console.log(maPersonne["objectInMap"]["codePostal"]);
+
+        //Modification de mon pays.
+        maPersonne.pays = "FRANCE";
+
+        console.log(maPersonne)
+
+
+        // crée un object dans un object comme si dessus mais d'une maniere plus simple.
+        let maPersonne = {
+            prenom: "Djaafar",
+            nom: "BOUMAZA",
+            age: 25,
+            // modifier ou add 
+            modif: {
+                numero: 5,
+                rue: "machin",
+                ville: "trolala",
+            },
+            region: "Rhône Alpes",
+            pays: "Suisse",
             celibataire: false
         };
     </script>
