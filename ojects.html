@@ -19,9 +19,15 @@
             age: 25,
             region: "Rhône Alpes",
             pays: "Suisse",
-            celibataire: false
+            celibataire: false,
+            //crée un tableau dans l'objet.
+            tab: ["tableau", 1, "true", 2, "false", ["chien", "chat"]]
         };
-
+        //Afficher une valeur du tab.
+        console.log(maPersonne.tab[2]);
+        //Afficher une valeur du sous tableau.
+        console.log(maPersonne.tab[5[1]]);
+        console.log(maPersonne["tab"]);
         //acceder au differente proprieter de l'objet. 
         console.log(maPersonne.region);
         //ou
@@ -52,7 +58,7 @@
 
 
         // crée un object dans un object comme si dessus mais d'une maniere plus simple.
-        let maPersonne = {
+        let maPersonne1 = {
             prenom: "Djaafar",
             nom: "BOUMAZA",
             age: 25,
@@ -66,6 +72,23 @@
             pays: "Suisse",
             celibataire: false
         };
+
+        //acceder a une proprieter.
+        maPersonne1.modif.numero
+            // ou
+        console.log(maPersonne1["modif"]["numero"]);
+
+        //function dans un object.
+
+        let personne2 = {
+            nom: "BOUMAZA",
+            prenom: "Djaafar",
+            method: function() {
+                alert("helo word");
+            },
+        };
+        personne2.method();
+        console.log(personne2.method)
     </script>
 </body>
 
