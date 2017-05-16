@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>gameObject</title>
+    <style>
+        body {
+            background-image: url("https://wallpaperhdzone.com/wp-content/uploads/2016/11/blood-elf-wallpaper-HD2.jpg");
+            background-size: 100%;
+            background-color: #000000;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+        
+        audio {
+            opacity: 0.2;
+            width: 5%;
+            margin-left: 95%;
+            margin-top: 0%;
+        }
+        
+        audio:hover {
+            opacity: 0.9;
+            background-color: #000000;
+            color: #ffffff;
+        }
+        
+        h1 {
+            letter-spacing: -2px;
+            text-align: center;
+            line-height: 1;
+            font-size: 5em;
+            font-weight: 900;
+        }
+        
+        h1>span.h1css {
+            font-family: 'Helvetica Neue', sans-serif;
+            color: #f1c40f;
+            /*ombre*/
+            text-shadow: 5px 10px 30px black, 1px 10px 10px #2c3e50;
+            /*degrader color*/
+            background-color: #2980b9;
+            border-radius: 15px;
+            padding: 15px;
+            opacity: 0.7;
+        }
+        
+        h1>span.h1css:hover {
+            font-family: 'Helvetica Neue', sans-serif;
+            color: #f1c40f;
+            /*ombre*/
+            text-shadow: 5px 10px 30px black, 1px 10px 10px #2c3e50;
+            /*degrader color*/
+            background-color: #2980b9;
+            border-radius: 15px;
+            padding: 15px;
+            opacity: 0.9;
+        }
+        
+        a {
+            list-style: none;
+            text-decoration: none;
+        }
+        
+        .divButton {
+            height: 65vh;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+        }
+        
+        button {
+            height: 10vh;
+            background-color: black;
+            padding: 10px;
+            text-align: center;
+            font-weight: 500;
+            opacity: 0.6;
+            border: none;
+        }
+        
+        button:hover {
+            height: 10vh;
+            font-weight: 900;
+            opacity: 0.9;
+            background-color: #000000;
+            border: none;
+        }
+        /*Color Span*/
+        
+        .playerColorG {
+            color: #e74c3c;
+            font-size: 2em;
+        }
+        
+        .playerColorB {
+            color: #0000FF;
+            font-size: 2em;
+        }
+    </style>
+</head>
+
+<body>
+    <audio src="../audio/logicImpact.mp3" controls loop>Sons</audio>
+    <h1><span class="h1css">MORTEL CONSOLE</span></h1>
+    <!-- autoplay si l'on veut que le music demare lors de l'ouverture de la page -->
+    <div class="divButton">
+        <button input="submit" class="player1"><span class="playerColorG">Player 1</span></button>
+        <button input="submit" class="player2"><span class="playerColorB">Player 2</span></button>
+        <!--<button input="submit" class="botIA">Claquer botIA</button>-->
+    </div>
+    <script>
+        //############################################################# Bienvenus 
+        window.alert("Bienvenus sur mortel console !")
+
+        //############################################################# CREATE OBJECT PLAYER
+        // let playerObject= new nomObject();
+
+        //Create object players
+        let player1 = {
+            name: "player1",
+            life: 110,
+            protected: 100,
+            power: 100
+        };
+        let player2 = {
+            name: "player2",
+            life: 110,
+            protected: 100,
+            power: 100
+        };
+        // let botIA = {
+        //     name: "botIA",
+        //     life: 10
+        // };
+
+        console.log(player1, player2); //BotIA en attente.
+
+        //############################################################# CREATE FUNCTiON DAMMAGE PlAYER
+
+        let dammage = function(dammagePlayer) {
+            dammagePlayer.life -= 10;
+        };
+        dammage(player1); //Player 2 attack le player 1 - 1O hp.
+        dammage(player2); //Le player 1 attack le player 2 - 10 hp.
+        console.log(player1, player2); // dammage(botIA);
+
+        //create function player heal.
+        let heal = function(persos) {
+            persos.life += 150;
+        };
+        heal(player1, player2); //botIA en attente.
+
+        //############################################################# TARGET BUTTON
+
+        //addEventListener player1.
+        let buttonTarget1 = document.querySelector(".player1").addEventListener("click", function() {
+            dammage(player2);
+            console.log("Le joueur 2 vous inflige -10 hp //Stats console : ", player2);
+        });
+
+        //addEventListener player2.
+        document.querySelector(".player2").addEventListener("click", function() {
+            dammage(player1);
+            console.log("Le joueur 1 vous inflige -10 hp //Stats console", player1);
+        });
+
+        //addEventListener botIA.
+        // let buttonTargetN = document.querySelector(".botIA").addEventListener("click", function() {
+        //     dammage(botIA);
+        //     console.log("botIA c'est pris une grosse claque de :" + botIA);
+        // });
+
+        //############################################################# ...
+    </script>
+</body>
+
+</html>

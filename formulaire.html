@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+<head>
+	<title>formulaire</title>
+	<style type="text/css">
+		* {
+			margin: 0 auto;
+			padding: 0px;
+		}
+		h1 {
+			text-align: center;
+			font-weight: 900;
+		}
+		form {
+			text-align: center;
+			background-color: #000000;
+			padding: 20px;
+		}
+		label {
+			color: #ffffff;
+			padding-left: 20px;
+		}
+		input {
+			padding: 5px;
+		}
+	</style>
+</head>
+<body>
+	<h1>FORMULAIRE</h1>
+		<form action="#" method="GET">
+			<fieldset>
+	<p>
+			<label for="nom">Nom</label>
+			<input type="text" name="nom" id="nom">
+	</p>
+	<p>
+			<label for="prenom">Prenom</label>
+			<input type="text" name="prenom" id="prenom">
+	</p>
+	<p>
+			<label for="email">Email</label>
+			<input type="E-mail" name="email" id="email">
+	</p>
+	<p>
+			<label for="passwd">Mot de passe</label>
+			<input type="password" name="mdp" id="passwd">
+	</p>
+	<p>
+			<button type="submit" id="submit">Valider</button>
+			</fieldset>
+		</form>
+		<script type="text/javascript">
+		//Ajouter un evenement et lui affecter une fonction.
+		let button = document.querySelector("#submit");
+		button.addEventListener("click", function(e) {
+			//Cible les elements.
+			let form = document.querySelector("form");
+			let firstName = document.querySelector("#nom");
+			let name = document.querySelector("#prenom");
+			let mail = document.querySelector("#email");
+			let mdp = document.querySelector("#passwd");
+			//Crée une div
+			let newdiv = document.createElement("div");
+			console.log(newdiv);
+			//Ecris dans la nouvelle div.
+			newdiv.innerHTML = "Resultat du formulaire : " + firstName + name + mail + mdp;
+			console.log(newdiv);
+		});
+		</script>
+</body>
+
+</html>

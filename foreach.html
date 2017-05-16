@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Foreach</title>
+</head>
+
+<body>
+    <script>
+        let object = {
+            clef1: "valeurA",
+            clef2: "valeurB",
+            clef3: "valeurC",
+            clef4: "valeurD",
+        }
+
+        // la boucle for "in" parcoure toutes les clefs des propreter d'un object.
+        // On déclare un variable en premier qui contiendra les clefs son nom importe peu.
+        for (let parcoursClef in object) {
+            console.log(object + " : " + object["clef1"]);
+        }
+        //ON utilise la notation avec corchet pour pouvoir accéder a la valeur 
+        // d'une proprieter en lui fournissant une variable comme clef.
+
+
+        //le for in fonctionne techniquement sur les tableau javascript par contre il aura des
+        //comportement inidesirable sur les peseudo tableau genre ceux renvoyer par le dom
+        let tableau = ["ga", "go", "fu"];
+        for (let index in tableau) {
+            console.log(index);
+        };
+        //  Le for ... of existe depuis la specification ECMAScritp2015 
+        // et permet d'utérer sur les valeur d'un tableau (ne marche pas sur les objets directement)
+        for (let index of tableau) {
+            console.log(index);
+        };
+
+
+        // les tableau js natif possèdent  une méthode forEach qui attend une fonction en argument qui sera declenchée a chque
+        // entrée contenus dans le tableau cette fonction possède elle même 2 arguments, la valeurs actuelle et la clef actuelle.
+        tableau.forEach(function(valeur, clef) {
+            console.log(clef + ":" + valeur);
+        });
+
+        // la condition est false il va rien faire.
+        while (false) {
+            console.log("bloup");
+        }
+
+        // Le do..while executera le contenus du do tant que la condition du while est vraie.
+        // il executera donc toujours au moions une fois le contenu du do (la verification se passant après, 
+        // contrairement au while classique.
+        // Fais sa tant que la condition est vrai mais vus que c'est false il va le faire qu'une fois.
+        do {
+            console.log("bloop")
+        } while (false);
+    </script>
+
+
+
+</body>
+
+</html>

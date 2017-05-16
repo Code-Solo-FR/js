@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jeux tour par tour</title>
+    <!--<script type="text/javascript" src="script.js"></script>-->
+
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <button class="button1">player 1</button>
+    <button class="button2">player 2</button>
+
+    <script>
+        //Creation des object (joueur)
+        //1 ere maniere de declarer des object
+        // let joueur1 = new Object();
+        // joueur1.hp = 100;
+
+
+
+        // 2eme maniere de declarer des objets.
+        //CREATION D'OBJECT.
+        let player1 = {
+            nom: "player1",
+            hp: 100,
+            bouclier: 100,
+            attaque: 30
+        };
+
+        let player2 = {
+            nom: "player2",
+            hp: 100,
+            bouclier: 100,
+            attaque: 30
+        };
+
+        //Crée une Function enlever de la vie.
+        let pointPerdus = function(dammage) {
+            dammage.hp -= 10;
+        };
+
+        pointPerdus(player1); //player2 attack le player 1 hp -10
+        pointPerdus(player2); // player1 attack le player 2 hp -10
+        console.log(player1, player2);
+
+        //Ajout point perdus sur mes bouton 
+        document.querySelector(".button1").addEventListener("click", function() {
+            pointPerdus(player2);
+            console.log(player2);
+        });
+
+        //Ajout point perdus sur mes bouton 
+        document.querySelector(".button2").addEventListener("click", function() {
+            pointPerdus(player1);
+            console.log(player1);
+        });
+
+        //crée une fonction ajoute de la vie.
+        let addlife = function(addperso1, addperso2) {
+            addperso1.hp += 10;
+            addperso2.hp += 10;
+        };
+        addlife(player1, player2);
+        console.log(player1, player2);
+
+
+
+
+        // On renvoie un entier aléatoire entre une valeur min (incluse)
+        // et une valeur max (incluse).
+        // Attention : si on utilisait Math.round(), on aurait une distribution
+        // non uniforme 
+
+        // function attRandomMinMax(player1) {
+        //     player1.attaque = Math.random(0, 30);
+        // };
+        // console.log(attRandomMinMax(solocrako));
+
+        // //affiche les proprieter stats de solocrakoo
+        // statSolocrako1 = console.log(solocrako["hp"]);
+        // statSolocrako2 = console.log(solocrako["bouclier"]);
+        // statSolocrako3 = console.log(solocrako["attaque"]);
+        // //affiche les proprieter stat de botIA
+        // statBotIA1 = console.log(botIA["hp"]);
+        // statBotIA2 = console.log(botIA["bouclier"]);
+        // statBotIA3 = console.log(botIA["attaque"]);
+
+
+
+        // function attRandomMinMax(min, max) {
+        //     min = Math.ceil(min);
+        //     max = Math.floor(max);
+        //     return Math.floor(Math.random() * (max - min + 1)) + min;
+        // };
+        // console.log(attRandomMinMax(0, 30));
+    </script>
+</body>
+
+</html>

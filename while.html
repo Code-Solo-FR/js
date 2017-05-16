@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Boucle While</title>
+</head>
+
+<body>
+    <script>
+        //Objectif demander a jamais quelque chose jusqu'a la bonne reponse.
+        //Intro
+        let intro = window.alert("Hey, j'ai une super enigme pour vous !");
+        //Question
+        let enigme = prompt("combien de fois va t'il nous la mettre émmanuel macron");
+        //Bonne réponse
+        let bonneReponse = "10";
+        //Felicitation
+        let felicitation = "Ouai Super ! tu as réussis ! toute manière il nous la mette depuis des années";
+        //Boucle
+        while (enigme !== bonneReponse) {
+            //Question
+            //afficher la reponse de l'utilisateur.
+            let p = document.createElement("p");
+            p.textContent = "Mauvaise réponse, Emmanuel est généreux " + enigme;
+            document.body.appendChild(p);
+            enigme = prompt("Essaye encore");
+
+        };
+        alert(felicitation);
+    </script>
+</body>
+
+</html>

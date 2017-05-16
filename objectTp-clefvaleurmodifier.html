@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Foreach</title>
+</head>
+
+<body>
+    <!--###################### TP -->
+    <!--Création des button-->
+    <label for="clef">Entrer la clef :</label>
+    <input type="text" id="clef" class="clef" />
+    <label for="valeur">Entrer la valeur :</label>
+    <input type="text" id="valeur" class="valeur" />
+    <button type="submit" id="add">Ajouter vos donner dans l'objet</button>
+
+
+    <script>
+        //##################################################### TP pas de floreach ici
+
+        //Creation de l'object
+        let dataObject = {
+                //mvc 
+            }
+            //Cibler le button pour lui ajouter un event.
+        let cButton = document.querySelector("button");
+        //Add un event sur le button.
+        cButton.addEventListener("click", function() {
+            //Cibler les input & recup les data.
+            let cClef = document.querySelector(".clef").value;
+            let cValeur = document.querySelector(".valeur").value;
+            //Dans l'objet lui ecrire les data qu'on récupere.
+            dataObject.innerHTML = cClef + " : " + cValeur;
+
+            //Niquel Sa marche.
+            //Modifier la valeur si la clef existe deja.
+            // on remplace une proprieter en prenant les valeur de nos deux input comme cClef/cValeur.
+            dataObject[cClef.value] = cValeur.value;
+            console.log(dataObject);
+            //Si 2 fois la meme clef entrer faire un tableau affiche les une a coter des autres.
+            //Creation d'une condition.
+            //Si la (propriété) existe et qui s'apppele cClef
+            if (dataObject.hasOwnProperty(cClef)) {
+                //Si oui rajoute la nouvelle valeur a la suite. 
+                dataObject[cClef.value] += "," + cValeur.value;
+                //Pour faire sous forme de tableau
+
+                //if(typeof(dataObjetc)) === "array" {}
+
+            } else {
+                //Sinon on crée la propriété.
+                dataObject[cClef.value] = cValeur.value;
+            }
+        });
+    </script>
+</body>
+
+</html>
