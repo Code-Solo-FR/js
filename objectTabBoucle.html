@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Classe Simplon</title>
+</head>
+
+<body>
+
+    <script>
+        //Create function in tab in object (cmass simplon).
+        function classTable() {
+            return [{
+                nameTable: "Table des frites",
+                place: [1, 2, 3, 4, 5, 6],
+                name: ["Djaafar", "Yannis", "Valentin", "Justin", "Maelle", "Cyril"]
+            }, {
+                nameTable: "Table de sauce",
+                place: [1, 2, 3, 4, 5, 6],
+                name: ["Hayet", "Manon", "Julien", "Thomas", "Kadie", "Clemence"]
+            }, {
+                nameTable: "Table de fruit",
+                place: [1, 2, 3, 4, 5, 6],
+                name: ["Marlene", "Apdil", "Virginie", "Emanuelle", "Sebastien", "Remy"]
+            }, {
+                nameTable: "Table de légume",
+                place: [1, 2, 3, 4, 5, 6],
+                name: ["Audrey", "Sylvain", "Evan", "Yamina", "Selma", "Kevin"]
+            }];
+        };
+        let appel = classTable();
+        console.log(appel);
+        //itère sur les valeur du tableau.
+        for (let i of appel) {
+            console.log(appel[i]);
+            console.log(i.nameTable);
+            console.log(i.place);
+            console.log(i.name);
+        };
+    </script>
+</body>
+
+</html>
