@@ -10,7 +10,7 @@
         body {
             background-image: url("https://wallpaperhdzone.com/wp-content/uploads/2016/11/blood-elf-wallpaper-HD2.jpg");
             background-size: 100%;
-            background-color: #000000;
+            background-color: #ffffff;
             background-repeat: no-repeat;
             margin: 0;
             padding: 0;
@@ -106,6 +106,46 @@
             font-size: 2em;
             border-radius: 10px;
         }
+        /*################################################### Stat*/
+        /*Section stat*/
+        
+        .sectionStat {
+            display: flex;
+        }
+        /*div player 1 */
+        
+        .ulStatsPlayer1 {
+            display: flex;
+        }
+        
+        .ulStatsPlayer1>ul {
+            list-style: none;
+        }
+        
+        .ulStatsPlayer1>ul>li {
+            color: red;
+            display: inline;
+            padding: 15px;
+            margin: 5px;
+            background-color: #000000;
+            opacity: 1;
+        }
+        /*div player 2*/
+        
+        .ulStatsPlayer2 {}
+        
+        .ulStatsPlayer2>ul {
+            list-style: none;
+        }
+        
+        .ulStatsPlayer2>ul>li {
+            color: red;
+            display: inline;
+            padding: 15px;
+            margin: 5px;
+            background-color: #000000;
+            opacity: 1;
+        }
     </style>
 </head>
 
@@ -113,17 +153,36 @@
     <audio src="../audio/logicImpact.mp3" controls loop>Sons</audio>
     <h1><span class="h1css">MORTEL CONSOLE</span></h1>
     <!-- autoplay si l'on veut que le music demare lors de l'ouverture de la page -->
-    <div class="divButton">
-        <button input type="button" class="player1"><span class="playerColorG">Attaque</span></button>
-        <button input type="button" class="player2"><span class="playerColorB">Attaque</span></button>
-        <!--<button input="submit" class="botIA">Claquer botIA</button>-->
-    </div>
-    <div class="divButton">
-        <button input="submit" class="sort1"><span class="playerColorG">Sort</span></button>
-        <button input="submit" class="sort2"><span class="playerColorB">Sort</span></button>
-        <!--<button input="submit" class="botIA">Claquer botIA</button>-->
-    </div>
+    <!--Button Attaque-->
+    <section class="sectionButton">
+        <div class="divButton">
+            <button input type="button" class="player1"><span class="playerColorG" title="Lancer une attaque">Attaque</span></button>
+            <button input type="button" class="player2"><span class="playerColorB" title="Lancer une attaque">Attaque</span></button>
+            <!--<button input="submit" class="botIA">Claquer botIA</button>-->
+        </div>
+        <!--Button Sort-->
+        <div class="divButton">
+            <button input="submit" class="sort1"><span class="playerColorG" title="Sort de soin">Heal</span></button>
+            <button input="submit" class="sort2"><span class="playerColorB" title="Sort de soin">Heal</span></button>
+            <!--<button input="submit" class="botIA">Claquer botIA</button>-->
+        </div>
+    </section>
+    <section class="sectionStat">
+        <div class="ulStatsPlayer1">
+            <ul>
+                <li>Point de vie</li>
+                <li>Point de dégât</li>
+            </ul>
+        </div>
+        <div class="ulStatsPlayer2">
+            <ul>
+                <li>Point de vie</li>
+                <li>Point de dégât</li>
+            </ul>
+        </div>
+    </section>
     <script>
+        //Request to be wicked witth me.
         "use strict";
         //############################################################# Bienvenus 
         window.alert("Bienvenus sur mortel console !")
@@ -153,7 +212,7 @@
             }
         };
         console.log(player1, player2);
-        //############################################################# CREATE FUNCTiON DAMMAGE PlAYER
+        //############################################################# CREATE FUNCTiON DAMMAGE HEAL PlAYER
 
         //function D'attack
         let dammage = function(dammagePlayer1, dammagePlayer2) {
@@ -208,6 +267,7 @@
         //Create button
         let button = document.createElement("button");
         button.textContent = "Test";
+
         document.body.appendChild(button);
         button.addEventListener("click", function() {
             let speudoPrompt = prompt("Entrer un pseudonyme").value;
@@ -215,6 +275,8 @@
             pseudoParaf.textContent = speudoPrompt;
             document.body.appendChild(pseudoParaf);
         });
+
+        //############################################################ Create Display STATS
     </script>
 </body>
 
