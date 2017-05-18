@@ -66,6 +66,7 @@
             list-style: none;
             text-decoration: none;
         }
+        /*################################################### BUTTON*/
         
         .divButton {
             height: 65vh;
@@ -82,6 +83,7 @@
             font-weight: 500;
             opacity: 0.6;
             border: none;
+            border-radius: 10%;
         }
         
         button:hover {
@@ -90,6 +92,7 @@
             opacity: 0.9;
             background-color: #000000;
             border: none;
+            border-radius: 10%;
         }
         /*Color Span*/
         
@@ -101,20 +104,27 @@
         .playerColorB {
             color: #0000FF;
             font-size: 2em;
+            border-radius: 10px;
         }
     </style>
 </head>
 
 <body>
-    <audio src="../audio/logicImpact.mp3" controls loop autoplay>Sons</audio>
+    <audio src="../audio/logicImpact.mp3" controls loop>Sons</audio>
     <h1><span class="h1css">MORTEL CONSOLE</span></h1>
     <!-- autoplay si l'on veut que le music demare lors de l'ouverture de la page -->
     <div class="divButton">
-        <button input="submit" class="player1"><span class="playerColorG">Player 1</span></button>
-        <button input="submit" class="player2"><span class="playerColorB">Player 2</span></button>
+        <button input type="button" class="player1"><span class="playerColorG">Attaque</span></button>
+        <button input type="button" class="player2"><span class="playerColorB">Attaque</span></button>
+        <!--<button input="submit" class="botIA">Claquer botIA</button>-->
+    </div>
+    <div class="divButton">
+        <button input="submit" class="sort1"><span class="playerColorG">Sort</span></button>
+        <button input="submit" class="sort2"><span class="playerColorB">Sort</span></button>
         <!--<button input="submit" class="botIA">Claquer botIA</button>-->
     </div>
     <script>
+        "use strict";
         //############################################################# Bienvenus 
         window.alert("Bienvenus sur mortel console !")
 
@@ -124,59 +134,87 @@
         //Create object players
         let player1 = {
             name: "player1",
-            life: 110,
-            protected: 100,
-            power: 100
+            life: 1000,
+            sortHeal: function() {
+                return attdefRandomMinMax(20, 30);
+            },
+            power: function() {
+                return attdefRandomMinMax(0.5, 70);
+            }
         };
         let player2 = {
             name: "player2",
-            life: 110,
-            protected: 100,
-            power: 100
+            life: 1000,
+            sortHeal: function() {
+                return attdefRandomMinMax(20, 30);
+            },
+            power: function() {
+                return attdefRandomMinMax(0.5, 70);
+            }
         };
-        // let botIA = {
-        //     name: "botIA",
-        //     life: 10
-        // };
-
-        console.log(player1, player2); //BotIA en attente.
-
+        console.log(player1, player2);
         //############################################################# CREATE FUNCTiON DAMMAGE PlAYER
 
-        let dammage = function(dammagePlayer) {
-            dammagePlayer.life -= 10;
+        //function D'attack
+        let dammage = function(dammagePlayer1, dammagePlayer2) {
+            dammagePlayer1.life -= dammagePlayer2.power();
         };
-        dammage(player1); //Player 2 attack le player 1 - 1O hp.
-        dammage(player2); //Le player 1 attack le player 2 - 10 hp.
+        //dammage(player1, player2); //Player 2 attack le player 1 val = (0 <= 30 && 30 > 10).
+        //dammage(player2, player1); //Le player 1 attack le player 2 - 10 hp. val = (0 <= 30 && 30 > 10).
         console.log(player1, player2); // dammage(botIA);
 
-        //create function player heal.
-        let heal = function(persos) {
-            persos.life += 150;
+        //function heal.
+        let heal = function(healPlayer) {
+            healPlayer.life += healPlayer.sortHeal();
         };
-        heal(player1, player2); //botIA en attente.
+        //heal(player1);
+        //heal(player2);
+        console.log(player1, player2);
 
+        //create function random
+        function attdefRandomMinMax(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        };
         //############################################################# TARGET BUTTON
 
-        //addEventListener player1.
+        //addEventListener Attack player1 > player 2.
         let buttonTarget1 = document.querySelector(".player1").addEventListener("click", function() {
-            dammage(player2);
-            console.log("Le joueur 2 vous inflige -10 hp //Stats console : ", player2);
+            dammage(player1, player2);
+            console.log("Le joueur 2 vous inflige -10 hp //Stats console : ", player1.life);
         });
 
-        //addEventListener player2.
+        //addEventListener Attack player2 > player 1.
         document.querySelector(".player2").addEventListener("click", function() {
-            dammage(player1);
-            console.log("Le joueur 1 vous inflige -10 hp //Stats console", player1);
+            dammage(player2, player1);
+            console.log("Le joueur 1 vous inflige -10 hp //Stats console", player2.life);
         });
 
-        //addEventListener botIA.
-        // let buttonTargetN = document.querySelector(".botIA").addEventListener("click", function() {
-        //     dammage(botIA);
-        //     console.log("botIA c'est pris une grosse claque de :" + botIA);
-        // });
+        //addEventLister heal Player1.
+        document.querySelector(".sort1").addEventListener("click", function() {
+            heal(player1);
+            console.log(player1);
+        });
 
-        //############################################################# ...
+        //addEventLister heal Player1.
+        document.querySelector(".sort2").addEventListener("click", function() {
+            heal(player2);
+            console.log(player2);
+        });
+
+        //############################################################# Create prompt PSEUDO.
+
+        //Create button
+        let button = document.createElement("button");
+        button.textContent = "Test";
+        document.body.appendChild(button);
+        button.addEventListener("click", function() {
+            let speudoPrompt = prompt("Entrer un pseudonyme").value;
+            let pseudoParaf = document.createElement("p");
+            pseudoParaf.textContent = speudoPrompt;
+            document.body.appendChild(pseudoParaf);
+        });
     </script>
 </body>
 
