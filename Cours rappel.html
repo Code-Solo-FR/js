@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DOM</title>
+</head>
+<body>
+<!-- Operateur arithmitique (+ - x %) || le "." selectionne l'element d'un objet || le "=" écrase le contenus d'une variable.-->
+
+<h1>Super Titre</h1>
+<p>Super Paraf</p>
+<h1>Super Titre</h1>
+<p>Super Paraf</p>
+<h1>Super Titre</h1>
+<p>Super Paraf</p>
+<h1>Super Titre</h1>
+<p>Super Paraf</p>
+
+<script type="text/javascript">
+	//objectif bold title.
+	//Select title.
+	let his = document.querySelectorAll("h1");
+	//Faire parcourir tout les h1 donc faire une boucle.
+	for (let i = 0; i < his.length; i++) {
+		//Prend le contenus text des h1.
+		his[i].textContent = his[i].textContent.toUpperCase(); 
+	}
+
+ 	//find child element.
+ 	//Select all element p.
+ 	let allp = document.querySelectorAll("p");
+ 	//loop element html p
+ 	for (let a = 0; a < allp.length; a++) {
+ 		//On prend le contenus de allp[a] et on le met dans une varable.
+ 		let paraf = allp[a];
+ 		paraf.textContent = paraf.textContent.toUpperCase();
+ 	}
+
+	//
+	//Pour acceder a un element qui comporte un espace = [""].
+	//paraf.style["text-transform"] = toUpperCase; || mettre le text en MAJ par le biais de CSS. || link vers MDN https://developer.mozilla.org/fr/docs/Web/CSS/text-transform
+
+</script>
+</body>
+</html>

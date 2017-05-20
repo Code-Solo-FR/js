@@ -5,152 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="projectFight.css" />
     <title>gameObject</title>
-    <style>
-        body {
-            background-image: url("https://wallpaperhdzone.com/wp-content/uploads/2016/11/blood-elf-wallpaper-HD2.jpg");
-            background-size: 100%;
-            background-color: #ffffff;
-            background-repeat: no-repeat;
-            margin: 0;
-            padding: 0;
-            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-        }
-        
-        audio {
-            opacity: 0.2;
-            width: 5%;
-            margin-left: 95%;
-            margin-top: 0%;
-        }
-        
-        audio:hover {
-            opacity: 0.9;
-            background-color: #000000;
-            color: #ffffff;
-        }
-        
-        h1 {
-            letter-spacing: -2px;
-            text-align: center;
-            line-height: 1;
-            font-size: 5em;
-            font-weight: 900;
-        }
-        
-        h1>span.h1css {
-            font-family: 'Helvetica Neue', sans-serif;
-            color: #f1c40f;
-            /*ombre*/
-            text-shadow: 5px 10px 30px black, 1px 10px 10px #2c3e50;
-            /*degrader color*/
-            background-color: #2980b9;
-            border-radius: 15px;
-            padding: 15px;
-            opacity: 0.7;
-        }
-        
-        h1>span.h1css:hover {
-            font-family: 'Helvetica Neue', sans-serif;
-            color: #f1c40f;
-            /*ombre*/
-            text-shadow: 5px 10px 30px black, 1px 10px 10px #2c3e50;
-            /*degrader color*/
-            background-color: #2980b9;
-            border-radius: 15px;
-            padding: 15px;
-            opacity: 0.9;
-        }
-        
-        a {
-            list-style: none;
-            text-decoration: none;
-        }
-        /*################################################### BUTTON*/
-        
-        .divButton {
-            height: 65vh;
-            display: flex;
-            justify-content: space-around;
-            align-items: flex-end;
-        }
-        
-        button {
-            height: 10vh;
-            background-color: black;
-            padding: 10px;
-            text-align: center;
-            font-weight: 500;
-            opacity: 0.6;
-            border: none;
-            border-radius: 10%;
-        }
-        
-        button:hover {
-            height: 10vh;
-            font-weight: 900;
-            opacity: 0.9;
-            background-color: #000000;
-            border: none;
-            border-radius: 10%;
-        }
-        /*Color Span*/
-        
-        .playerColorG {
-            color: #e74c3c;
-            font-size: 2em;
-        }
-        
-        .playerColorB {
-            color: #0000FF;
-            font-size: 2em;
-            border-radius: 10px;
-        }
-        /*################################################### Stat*/
-        /*Section stat*/
-        
-        .sectionStat {
-            display: flex;
-        }
-        /*div player 1 */
-        
-        .ulStatsPlayer1 {
-            display: flex;
-        }
-        
-        .ulStatsPlayer1>ul {
-            list-style: none;
-        }
-        
-        .ulStatsPlayer1>ul>li {
-            color: red;
-            display: inline;
-            padding: 15px;
-            margin: 5px;
-            background-color: #000000;
-            opacity: 1;
-        }
-        /*div player 2*/
-        
-        .ulStatsPlayer2 {}
-        
-        .ulStatsPlayer2>ul {
-            list-style: none;
-        }
-        
-        .ulStatsPlayer2>ul>li {
-            color: red;
-            display: inline;
-            padding: 15px;
-            margin: 5px;
-            background-color: #000000;
-            opacity: 1;
-        }
-    </style>
 </head>
 
 <body>
-    <audio src="../audio/logicImpact.mp3" controls loop>Sons</audio>
+    <!-- <audio src="../audio/logicImpact.mp3" controls loop>Sons</audio> -->
     <h1><span class="h1css">MORTEL CONSOLE</span></h1>
     <!-- autoplay si l'on veut que le music demare lors de l'ouverture de la page -->
     <!--Button Attaque-->
@@ -184,12 +44,10 @@
     <script>
         //Request to be wicked witth me.
         "use strict";
-        //############################################################# Bienvenus 
+        //############################################################# Bienvenus
         window.alert("Bienvenus sur mortel console !")
-
         //############################################################# CREATE OBJECT PLAYER
         // let playerObject= new nomObject();
-
         //Create object players
         let player1 = {
             name: "player1",
@@ -213,7 +71,6 @@
         };
         console.log(player1, player2);
         //############################################################# CREATE FUNCTiON DAMMAGE HEAL PlAYER
-
         //function D'attack
         let dammage = function(dammagePlayer1, dammagePlayer2) {
             dammagePlayer1.life -= dammagePlayer2.power();
@@ -221,7 +78,6 @@
         //dammage(player1, player2); //Player 2 attack le player 1 val = (0 <= 30 && 30 > 10).
         //dammage(player2, player1); //Le player 1 attack le player 2 - 10 hp. val = (0 <= 30 && 30 > 10).
         console.log(player1, player2); // dammage(botIA);
-
         //function heal.
         let heal = function(healPlayer) {
             healPlayer.life += healPlayer.sortHeal();
@@ -229,45 +85,30 @@
         //heal(player1);
         //heal(player2);
         console.log(player1, player2);
-
         //create function random
         function attdefRandomMinMax(min, max) {
             min = Math.ceil(min);
             max = Math.floor(max);
             return Math.floor(Math.random() * (max - min + 1)) + min;
         };
-        //############################################################# TARGET BUTTON
-
-        //addEventListener Attack player1 > player 2.
-        let buttonTarget1 = document.querySelector(".player1").addEventListener("click", function() {
-            dammage(player1, player2);
-            console.log("Le joueur 2 vous inflige -10 hp //Stats console : ", player1.life);
-        });
-
-        //addEventListener Attack player2 > player 1.
         document.querySelector(".player2").addEventListener("click", function() {
             dammage(player2, player1);
             console.log("Le joueur 1 vous inflige -10 hp //Stats console", player2.life);
         });
-
         //addEventLister heal Player1.
         document.querySelector(".sort1").addEventListener("click", function() {
             heal(player1);
             console.log(player1);
         });
-
         //addEventLister heal Player1.
         document.querySelector(".sort2").addEventListener("click", function() {
             heal(player2);
             console.log(player2);
         });
-
         //############################################################# Create prompt PSEUDO.
-
         //Create button
         let button = document.createElement("button");
         button.textContent = "Test";
-
         document.body.appendChild(button);
         button.addEventListener("click", function() {
             let speudoPrompt = prompt("Entrer un pseudonyme").value;
@@ -275,8 +116,8 @@
             pseudoParaf.textContent = speudoPrompt;
             document.body.appendChild(pseudoParaf);
         });
-
         //############################################################ Create Display STATS
+        document.createElement("è§èèè");
     </script>
 </body>
 
