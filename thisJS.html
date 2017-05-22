@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Comment sa marche "This"</title>
+</head>
+
+<body>
+
+    <button class="button1">green</button>
+    <button class="button2">red</button>
+    <button class="button3">blue</button>
+
+    <script>
+        // Introduction au this
+        // dans un fichier this.html
+        // faire un objet chien qui aura un nom, une race, une méthode aboyer et une méthode présentation
+        // la méthode présentation pointera sur une function externe function pres() {} 
+        // qui fera une itération sur les propriétés du chien et affichera ses associations clef/valeur
+
+        //Create object. 
+        chien = {
+            name: "frite",
+            race: "Jack ressel",
+            age: 2,
+            aboyer: function() {
+                alert("wafwaf");
+            },
+            presentation: pres
+        };
+        //Create function extern presentation: 
+        function pres() {
+            //Itération sur l'object.
+            for (let prop in this) {
+                console.log(prop + " : " + this[prop])
+            }
+        };
+
+        //utuliser la meme function avec this pour l'utiliser à de different object.
+        // create un new object.
+        let persons = {
+            name: "Mark",
+            race: "humain",
+            age: 30,
+            presentation: pres
+        };
+
+        // TP chnger la couleur des button avec la meme fucntion en cliquant dessus.
+        function changeColor() {
+            let buttonColor = document.querySelectorAll(".button");
+            buttonColor.addEventListener("click", function(but1, but2, but3) {
+                but1.style.color = "blue";
+                but2.style.color = "green";
+                but3.style.color = "red";
+                //target color
+                button1 = but1;
+                button2 = but2;
+                button3 = but3;
+
+            })
+        };
+    </script>
+</body>
+
+</html>
