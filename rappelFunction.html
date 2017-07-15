@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LES FUNCTIONS</title>
+</head>
+
+<body>
+    <h1>LES FUNCTiON RAPPEL</h1>
+    <script>
+        //Une function sert a ne pas se repeter.
+        //ON crée un li
+        let li = document.createElement("li");
+        // ajoute d'une chaine de charactere dans mon li.
+        li.textContent = "j'ai ajouter du texte";
+        //Je place mon li dans le body.
+        document.body.appendChild(li) //c'est la variable li pas l'element.
+
+        //Maintenant crée une fonction qui crée tout les element que l'on veut.
+        //On crée une fonction.
+        function create(type) { //ici on lui ajoute l'argument qui a le sens
+            //ON crée un li
+            let li = document.createElement("type"); //On lui rappelle l'argument qui a un sens
+            // ajoute d'une chaine de charactere dans mon li.
+            li.textContent = "j'ai ajouter du texte";
+            //Je place mon li dans le body.
+            document.body.appendChild(li) //c'est la variable li pas l'element.
+        };
+        // On appel la function.
+        create("p"); // avce l'élement que l'on souhaite.
+
+        //D'autre exemple.
+        function appel1(argument1) {
+            alert(argument1);
+        }
+        appel1("coucou");
+
+        // ou
+        function appel2(argument2) {
+            let varia = "abc";
+            alert(argument2);
+        }
+        appel2("coucou");
+
+
+        //Maintenant 2 argument.
+        function create(type, argtest) { //ici on lui ajoute les 2 arguments
+            //ON crée un li
+            let variable = document.createElement("type"); //On lui rappelle l'argument type
+            // ajoute d'une chaine de charactere dans mon li.
+            variable.textContent = "j'ai ajouter du texte" + argtest; // On lui ajoute le second argument argtest. 
+            //Je place mon li dans le body.
+            document.body.appendChild(variable) //c'est la variable pas l'element.
+        };
+        // On appel la function.
+        create("p", "h1"); // p est = a l'argument type et h1 est =  a l'argument argtest.
+
+        //function qui recupere un element et qui change la couleur que je lui aurait fournis a l'argument.
+        function colorChange(type, color) {
+            let element = document.querySelector(type);
+            element.textContent = "Je change de couleur";
+            element.style.backgroundColor = color;
+            document.body.appendChild(element);
+        }
+        colorChange("h1", "red");
+
+        function boduis(Mcolor) {
+            let aze = document.querySelector("body")
+            aze.style.backgroundColor = Mcolor;
+        };
+        let color = prompt("entrez new color");
+        boduis(color);
+
+        //function calcule.
+        function calcule(num1, num2) {
+            console.log(num1 + num2);
+        };
+        calcule(1, 2);
+
+        let a = "Je suis dehors";
+        test();
+
+        function test() {
+            console.log(a);
+        };
+
+        //crée une fonction qui affiche juste le resultat.
+        function resultat(num1, num2) {
+            return num1 * num2;
+            //Return nous renvois le resultat des arguments que l'on lui donne.
+            //Le return sert a donner une valeur a notre fonction.
+        };
+        console.log(resultat(10, 10));
+        //donc la ma variab sera = a 20; et est supprimer 
+        //donc maintenant il faut l'enregistrer dans un variable.
+        let variab = resultat(10, 10);
+        console.log(variab);
+        //On a justge a appeler la variable qui contient le resultat de la function soit 100.
+
+        //TP consigne : faire une function qui renvois une string bonjour je m'appelle djaafar.
+        function appel(pres) {
+            return pres
+        };
+        console.log(appel("Bonjour je m'appelle Djaafar"));
+    </script>
+</body>
+
+</html>
